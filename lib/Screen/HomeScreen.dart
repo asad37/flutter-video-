@@ -1,9 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:flutter/widgets.dart';
-import 'package:quiz_app/Screen/SidNav.dart';
 import 'package:video_player/video_player.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -14,24 +10,46 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  late VideoPlayerController _controller;
   @override
   void initState() {
-    // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
-    setState(() {
-      super.initState();
-    });
+    _controller = VideoPlayerController.asset("assets/videos/asad.mp4",
+        videoPlayerOptions: VideoPlayerOptions())
+      ..initialize().then((value) {
+        setState(() {
+          VideoProgressIndicator(
+            _controller,
+            allowScrubbing: true,
+            colors: VideoProgressColors(
+                backgroundColor: Colors.red,
+                bufferedColor: Colors.black,
+                playedColor: Colors.blueAccent),
+          );
+        });
+      });
+    super.initState();
+    _controller.play();
   }
 
   @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
-      children: [],
-    ));
+      appBar: AppBar(),
+      body: Container(
+        width: 300,
+        height: 300,
+        child: _controller.value.isInitialized
+            ? VideoPlayer(_controller)
+            : Container(),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          _controller.value.isPlaying
+              ? _controller.pause()
+              : _controller.play();
+        },
+        child: Icon(Icons.play_arrow),
+      ),
+    );
   }
 }
