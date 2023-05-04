@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "840521403888",
+    "project_id": "waqas-123456",
+    "storage_bucket": "waqas-123456.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:840521403888:android:0b70b5344fe7bb8f2ea135",
+        "android_client_info": {
+          "package_name": "com.example.asad_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "840521403888-l0bqr3jc5pb59fmeocjmpm1ka03q7agc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQXboZYc2bj2BGY9ECH-1haR3aW42roa8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "840521403888-l0bqr3jc5pb59fmeocjmpm1ka03q7agc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "840521403888-0gakjqc613hhdjthgm4qvld0cslbdchv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.asadApp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:840521403888:android:4f768c52682749752ea135",
+        "android_client_info": {
+          "package_name": "com.example.quiz_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "840521403888-l0bqr3jc5pb59fmeocjmpm1ka03q7agc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQXboZYc2bj2BGY9ECH-1haR3aW42roa8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "840521403888-l0bqr3jc5pb59fmeocjmpm1ka03q7agc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "840521403888-0gakjqc613hhdjthgm4qvld0cslbdchv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.asadApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
