@@ -15,7 +15,13 @@ class _NewFileState extends State<NewFile> {
     return Scaffold(
       appBar: AppBar(title: Text("UE Registration Form")),
       body: Container(
-        child: Column(),
+        child: Column(
+          children: [
+            TextFormField(
+              decoration: InputDecoration(),
+            )
+          ],
+        ),
       ),
     );
   }
