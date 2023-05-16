@@ -6,11 +6,12 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:quiz_app/Screen/login_form.dart';
 
 signIn(String email, String password, String gender, String username,
-    String phone, String fathername) {
+    String phone, String fathername, String cnic) {
   User? user = FirebaseAuth.instance.currentUser;
-  FirebaseFirestore.instance.collection("helloWorld").doc("waqas").set({
+  FirebaseFirestore.instance.collection("helloWorld").doc("asad").set({
     'username': username,
     'Father name': fathername,
+    'CNIC Number': cnic,
     'Contact Number': phone,
     'Gender': gender,
     'Email': email,

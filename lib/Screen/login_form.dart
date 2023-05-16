@@ -42,6 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       alignment: Alignment.center,
                       margin: EdgeInsets.symmetric(horizontal: 30),
                       child: TextFormField(
+                        controller: emailController,
                         decoration: InputDecoration(
                           hintText: "Email",
                           prefixIcon: Icon(Icons.email),
@@ -56,6 +57,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       alignment: Alignment.center,
                       margin: EdgeInsets.symmetric(horizontal: 30),
                       child: TextFormField(
+                        controller: passwordController,
                         decoration: InputDecoration(
                           hintText: "Password",
                           prefixIcon: Icon(Icons.password),

@@ -20,6 +20,7 @@ class _SignUpState extends State<SignUp> {
   TextEditingController fathernameController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
   TextEditingController genderController = TextEditingController();
+  TextEditingController cnicController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -196,10 +197,11 @@ class _SignUpState extends State<SignUp> {
       var username = usernameController.text.trim();
       var phone = phoneController.text.trim();
       var fathername = fathernameController.text.trim();
+      var cnic = cnicController.text.trim();
       await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password)
           .then((value) => print("user added"));
-      signIn(email, password, gender, username, phone, fathername);
+      signIn(email, password, gender, username, phone, fathername, cnic);
     } on FirebaseAuth catch (e) {
       print("$e");
     }
