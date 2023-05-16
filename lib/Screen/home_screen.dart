@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -13,12 +15,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   late VideoPlayerController _controller;
-  @override
-  void dispose() {
-    super.dispose();
-    _controller.dispose();
-  }
-
   @override
   void initState() {
     super.initState();
@@ -42,11 +38,17 @@ class _HomeScreenState extends State<HomeScreen> {
                     ImagePicker imagePicker = ImagePicker();
                     XFile? file = await imagePicker.pickImage(
                         source: ImageSource.gallery);
-
+                    print("file?.path");
+                    if (file == null) return;
+                    String filename = DateTime.now().millisecond.toString();
                     Reference image = FirebaseStorage.instance.ref();
                     Reference imagefold = image.child("Asad");
-                    Reference imageDirectory = image.child("imageUrl");
-                    await imageDirectory.getDownloadURL();
+                    Reference imageDirectory = imagefold.child(filename);
+                    try {
+                      await imageDirectory.putFile(File(file!.path));
+                    } on FirebaseStorage catch (e) {
+                      print("$e");
+                    }
                   },
                   child: Icon(Icons.camera_roll)),
             ),
