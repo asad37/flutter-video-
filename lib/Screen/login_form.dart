@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -13,6 +14,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,15 +70,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     Builder(builder: (context) {
                       return ElevatedButton(
                           onPressed: () {
-                            final message = SnackBar(
-                              content: Text("Login Successully"),
-                              backgroundColor: Colors.green.shade300,
-                              duration: Duration(seconds: 2),
-                              action: SnackBarAction(
-                                  label: "Done", onPressed: () {}),
-                              shape: StadiumBorder(),
-                            );
-                            ScaffoldMessenger.of(context).showSnackBar(message);
+                            displaySnack();
+                            displayScreen();
                           },
                           child: Text("Login"));
                     }),
@@ -111,5 +107,23 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
+  }
+
+  displaySnack() {
+    final message = SnackBar(
+      content: Text("Login Successully"),
+      backgroundColor: Colors.green.shade300,
+      duration: Duration(seconds: 2),
+      action: SnackBarAction(label: "Done", onPressed: () {}),
+      shape: StadiumBorder(),
+    );
+    ScaffoldMessenger.of(context).showSnackBar(message);
+  }
+
+  displayScreen() {
+    var email = emailController.text.trim();
+    var password = passwordController.text.trim();
+    FirebaseAuth.instance
+        .signInWithEmailAndPassword(email: email, password: password);
   }
 }

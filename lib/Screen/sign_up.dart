@@ -16,6 +16,10 @@ class SignUp extends StatefulWidget {
 class _SignUpState extends State<SignUp> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController usernameController = TextEditingController();
+  TextEditingController fathernameController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+  TextEditingController genderController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -185,16 +189,17 @@ class _SignUpState extends State<SignUp> {
   void authentication() async {
     try {
       // ignore: non_constant_identifier_names
-      var Email = emailController.text.trim();
+      var email = emailController.text.trim();
       // ignore: non_constant_identifier_names
-      var Password = passwordController.text.trim();
+      var password = passwordController.text.trim();
+      var gender = genderController.text.trim();
+      var username = usernameController.text.trim();
+      var phone = phoneController.text.trim();
+      var fathername = fathernameController.text.trim();
       await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(email: Email, password: Password)
+          .createUserWithEmailAndPassword(email: email, password: password)
           .then((value) => print("user added"));
-      signIn(
-        Email,
-        Password,
-      );
+      signIn(email, password, gender, username, phone, fathername);
     } on FirebaseAuth catch (e) {
       print("$e");
     }
