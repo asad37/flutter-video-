@@ -14,7 +14,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  late VideoPlayerController _controller;
   @override
   void initState() {
     super.initState();
@@ -35,20 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
               padding: const EdgeInsets.only(right: 15),
               child: GestureDetector(
                   onTap: () async {
-                    ImagePicker imagePicker = ImagePicker();
-                    XFile? file = await imagePicker.pickImage(
-                        source: ImageSource.gallery);
-                    print("file?.path");
-                    if (file == null) return;
-                    String filename = DateTime.now().millisecond.toString();
-                    Reference image = FirebaseStorage.instance.ref();
-                    Reference imagefold = image.child("Asad");
-                    Reference imageDirectory = imagefold.child(filename);
-                    try {
-                      await imageDirectory.putFile(File(file!.path));
-                    } on FirebaseStorage catch (e) {
-                      print("$e");
-                    }
+                    cameraButton();
                   },
                   child: Icon(Icons.camera_roll)),
             ),
@@ -70,5 +56,38 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
         body: Container());
+  }
+
+  cameraButton() async {
+    ImagePicker imagePicker = ImagePicker();
+    XFile? file = await imagePicker.pickImage(source: ImageSource.gallery);
+    print("file?.path");
+    if (file == null) return;
+    String filename = DateTime.now().millisecond.toString();
+    Reference image = FirebaseStorage.instance.ref();
+    Reference imagefold = image.child("Asad");
+    Reference imageDirectory = imagefold.child(filename);
+    try {
+      await imageDirectory.putFile(File(file!.path));
+    } on FirebaseStorage catch (e) {
+      print("$e");
+    }
+  }
+
+  galleryButton() async {
+    ImagePicker imagePicker = ImagePicker();
+    XFile? file = await imagePicker.pickImage(source: ImageSource.gallery);
+    print("file?.path");
+    if (file == null) return;
+    String filename = DateTime.now().millisecond.toString();
+    Reference image = FirebaseStorage.instance.ref();
+    Reference imagefold = image.child("Asad");
+    Reference imageDirectory = imagefold.child(filename);
+    try {
+      await imageDirectory.putFile(File(file!.path));
+      await imageDirectory.getDownloadURL();
+    } on FirebaseStorage catch (e) {
+      print("$e");
+    }
   }
 }

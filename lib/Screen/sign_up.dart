@@ -47,6 +47,7 @@ class _SignUpState extends State<SignUp> {
                       alignment: Alignment.center,
                       margin: EdgeInsets.symmetric(horizontal: 30),
                       child: TextFormField(
+                        controller: usernameController,
                         keyboardType: TextInputType.text,
                         decoration: InputDecoration(
                           hintText: "Name",
@@ -61,6 +62,7 @@ class _SignUpState extends State<SignUp> {
                       alignment: Alignment.center,
                       margin: EdgeInsets.symmetric(horizontal: 30),
                       child: TextFormField(
+                        controller: fathernameController,
                         keyboardType: TextInputType.text,
                         decoration: InputDecoration(
                           hintText: "Father Name",
@@ -75,6 +77,7 @@ class _SignUpState extends State<SignUp> {
                       alignment: Alignment.center,
                       margin: EdgeInsets.symmetric(horizontal: 30),
                       child: TextFormField(
+                        controller: genderController,
                         keyboardType: TextInputType.text,
                         decoration: InputDecoration(
                           hintText: "Gender",
@@ -89,6 +92,7 @@ class _SignUpState extends State<SignUp> {
                       alignment: Alignment.center,
                       margin: EdgeInsets.symmetric(horizontal: 30),
                       child: TextFormField(
+                        controller: cnicController,
                         keyboardType: TextInputType.number,
                         decoration: InputDecoration(
                           hintText: "CNIC",
@@ -103,6 +107,7 @@ class _SignUpState extends State<SignUp> {
                       alignment: Alignment.center,
                       margin: EdgeInsets.symmetric(horizontal: 30),
                       child: TextFormField(
+                        controller: phoneController,
                         keyboardType: TextInputType.number,
                         decoration: InputDecoration(
                           hintText: "Contact",
