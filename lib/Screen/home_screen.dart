@@ -1,10 +1,7 @@
-import 'dart:io';
-
-import 'package:firebase_storage/firebase_storage.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:video_player/video_player.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -64,12 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
     print("file?.path");
     if (file == null) return;
     String filename = DateTime.now().millisecond.toString();
-    Reference image = FirebaseStorage.instance.ref();
-    Reference imagefold = image.child("Asad");
-    Reference imageDirectory = imagefold.child(filename);
-    try {
-      await imageDirectory.putFile(File(file!.path));
-    } on FirebaseStorage catch (e) {
+    try {} on FirebaseAuth catch (e) {
       print("$e");
     }
   }
@@ -79,14 +71,8 @@ class _HomeScreenState extends State<HomeScreen> {
     XFile? file = await imagePicker.pickImage(source: ImageSource.gallery);
     print("file?.path");
     if (file == null) return;
-    String filename = DateTime.now().millisecond.toString();
-    Reference image = FirebaseStorage.instance.ref();
-    Reference imagefold = image.child("Asad");
-    Reference imageDirectory = imagefold.child(filename);
-    try {
-      await imageDirectory.putFile(File(file!.path));
-      await imageDirectory.getDownloadURL();
-    } on FirebaseStorage catch (e) {
+
+    try {} on FirebaseAuth catch (e) {
       print("$e");
     }
   }

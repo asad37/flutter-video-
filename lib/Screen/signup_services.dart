@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:quiz_app/Screen/login_form.dart';
@@ -16,6 +15,7 @@ signIn(String email, String password, String gender, String username,
     'Gender': gender,
     'Email': email,
     'Password': password,
+    'user': user
   }).then((value) {
     print("user Authenticate");
     Get.to(() => LoginScreen());

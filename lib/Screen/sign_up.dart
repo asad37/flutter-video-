@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:quiz_app/Screen/signup_services.dart';
-import 'login_interface.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class SignUp extends StatefulWidget {

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
-import 'login_interface.dart';
+
 import 'home_screen.dart';
 import 'login_form.dart';
 
